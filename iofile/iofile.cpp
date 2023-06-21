@@ -25,8 +25,30 @@ int main() {
 		if (baris == "q")break;
 		// menulis dan memasukan nilai dari 'baris' ke dalam file 
 		outfile << baris << endl;
-
 	}
+	//Sekarang tutup filenya
+	outfile.close();
+
+	//Membuka file dalam mode membaca
+	ifstream infile;
+	//menunjuk ke sebuah file
+	infile.open("contohfile.txt");
+
+	cout << endl << ">= Membuka dan membaca file " << endl;
+	//jika file ada maka
+	if (infile.is_open())
+	{
+		//melakukan perulangan setiap baris 
+		while (getline(infile, baris))
+		{
+			//dan tampilkan disini
+			cout << baris << '\n';
+		}
+		//tutup file jika sudah selesai 
+		infile.close();
+	}
+
+
 
 
 }
